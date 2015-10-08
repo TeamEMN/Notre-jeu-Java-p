@@ -18,4 +18,47 @@ public class Equipable extends Objet {
 		this._bonusVitesse = bonusV;
 		this._bonusMana = bonusM;
 	}
+	
+	// gets
+	public float getBonusPointsDeVie() {
+		return this._bonusPointsDeVie;
+	}
+	
+	public float getBonusAttaque() {
+		return this._bonusAttaque;
+	}
+	
+	public float getBonusDefense() {
+		return this._bonusDefense;
+	}
+	
+	public float getBonusVitesse() {
+		return this._bonusVitesse;
+	}
+	
+	public float getBonusMana() {
+		return this._bonusMana;
+	}
+	
+	// sets
+	public void setBonusPointsDeVie(int b) {
+		this._bonusPointsDeVie = b;
+	}
+	
+	public void setBonusAttaque(int b) {
+		this._bonusAttaque = b;
+	}
+	
+	public void setBonusDefense(int b) {
+		this._bonusDefense = b;
+	}
+	
+	public void setBonusVitesse(int b) {
+		this._bonusVitesse = b;
+	}
+	
+	public void setBonusMana(int b) {
+		this._bonusMana = b;
+	}
+	
 }
