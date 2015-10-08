@@ -1,3 +1,5 @@
+package LesActionsSpecials;
+
 
 public class Attaque{
 	

@@ -1,5 +1,7 @@
 package ModelePhysique;
 
+import ToutCeQuiPeutVivre.Vivant;
+
 public class Force {
 	private Vivant _vivant;
 	private int _intensiteX;

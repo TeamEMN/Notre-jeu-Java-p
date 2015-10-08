@@ -1,10 +1,15 @@
+package ToutCeQuiPeutVivre;
+
 import java.util.Scanner;
 
+import LesActionsSpecials.Attaque;
 
-public class Miramon{
+
+public class Vivant{
 //variable
 	private int _hp;
-	private int _lv;
+	private int _mana;
+	private int _manaMax;
 	private int _attaque;
 	private int _defense;
 	private Attaque[] _listeAttaque;
@@ -13,10 +18,14 @@ public class Miramon{
 	private int _hpMax;
 	private String _type;
 	private int _vitesse;
-	private String _nom;
+	private int _modVitesse;
+	//private inventaire monInventaire;
+	
+	
+	
 	//Constructeur (tout est ok)
 	
-	public Miramon(int hp, int lv, int attaque, int defense, 
+	public Vivant(int hp, int lv, int attaque, int defense, 
 					Attaque[] listeAttaque,	int modAttaque, 
 					int modDefense, int hpMax, String type, int vitesse,String nom){
 		_hp=hp;
@@ -31,7 +40,7 @@ public class Miramon{
 		_vitesse=vitesse;
 		_nom=nom;
 	}
-	public Miramon(Attaque[] listeAtt, String type){
+	public Vivant(Attaque[] listeAtt, String type){
 		_hp=100;
 		_lv=100;
 		_attaque=200;
@@ -246,7 +255,7 @@ public class Miramon{
 	 * le type de l'attaque et le type de m
 	 * Test:ok
 	 */
-	public void attaquerAvecDialogue(Miramon m, Attaque a) {
+	public void attaquerAvecDialogue(Vivant m, Attaque a) {
 		int efficacite = 2;
 		if (a.reussir()){
 			System.out.println(this.getNom()+" utilise l'attaque "+a.getNom());
@@ -266,7 +275,7 @@ public class Miramon{
 		
 		
 	}
-	public void Attaquer(Miramon m, Attaque a) {
+	public void Attaquer(Vivant m, Attaque a) {
 		int efficacite = 2;
 		if (a.reussir()){
 			if (m.estEfficace(a)){
