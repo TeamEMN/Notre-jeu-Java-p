@@ -1,5 +1,6 @@
 package ToutCeQuiPeutVivre;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import LesActionsSpecials.Attaque;
@@ -8,28 +9,42 @@ import LesActionsSpecials.Attaque;
 public class Vivant{
 //variable
 	private int _hp;
+	private int _hpMax;
 	private int _mana;
 	private int _manaMax;
 	private int _attaque;
 	private int _defense;
+	private int _vitesse;
 	private Attaque[] _listeAttaque;
+	
 	private int _modAttaque;
 	private int _modDefense;
-	private int _hpMax;
-	private String _type;
-	private int _vitesse;
 	private int _modVitesse;
+	
+	private int _attaqueEquipement;
+	private int _defenseEquipement;
+	
+	
+	private String _type;
+	
+
+	private int _vitesseX;
+	private int _vitesseY;
+	private int _accelerationX;
+	private int _accelerationY;
 	//private inventaire monInventaire;
 	
 	
 	
 	//Constructeur (tout est ok)
 	
-	public Vivant(int hp, int lv, int attaque, int defense, 
+	public Vivant(int hpMax,int manaMax, int attaque, int defense, 
 					Attaque[] listeAttaque,	int modAttaque, 
-					int modDefense, int hpMax, String type, int vitesse,String nom){
-		_hp=hp;
-		_lv=lv;
+					int modDefense, String type, int vitesse, int modVitesse,
+					int vitesseX,int vitesseY, int accelerationX, int accelerationY){
+		_hp=hpMax;
+		_mana=manaMax;
+		_manaMax=manaMax;
 		_attaque=attaque;
 		_defense=defense;
 		_listeAttaque=listeAttaque;
@@ -38,20 +53,28 @@ public class Vivant{
 		_hpMax=hpMax;
 		_type=type;
 		_vitesse=vitesse;
-		_nom=nom;
+		_vitesseX=vitesseX;
+		_vitesseY=vitesseY;
+		_accelerationX=accelerationX;
+		_accelerationY=accelerationY;
+		
 	}
 	public Vivant(Attaque[] listeAtt, String type){
 		_hp=100;
-		_lv=100;
-		_attaque=200;
-		_defense=150;
+		_mana=100;
+		_manaMax=100;
+		_attaque=20;
+		_defense=20;
 		_listeAttaque=listeAtt;
-		_modAttaque=2;
-		_modDefense=2;
+		_modAttaque=0;
+		_modDefense=0;
 		_hpMax=100;
 		_type=type;
-		_vitesse=100;
-		_nom="trucbidule";
+		_vitesse=50;
+		_vitesseX=0;
+		_vitesseY=0;
+		_accelerationX=0;
+		_accelerationY=0;
 	}
 	//getteur (tout es ok)
 
@@ -60,15 +83,6 @@ public class Vivant{
 		return _hp;
 	}
 
-	
-	public String getNom(){
-		return _nom;
-	}
-
-	public int getLv() {
-		// TODO Auto-generated method stub
-		return _lv;
-	}
 
 
 	public int getAttaque() {
@@ -322,9 +336,6 @@ public class Vivant{
 	public Boolean estKo(){
 		return this.getHp()<=0;
 	}
-	
-	
-	
 
 
 
