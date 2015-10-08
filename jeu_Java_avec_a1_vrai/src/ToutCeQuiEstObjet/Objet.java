@@ -4,14 +4,14 @@ public class Objet {
 	// privates
 	private String _nom;
 	private int _prix;
-	private int _poids;
+	private int _masse;
 	private String _urlImage;
 	
 	// constructeur
-	public Objet(String nom, int prix, int poids, String url) {
+	public Objet(String nom, int prix, int masse, String url) {
 		this._nom = nom;
 		this._prix = prix;
-		this._poids = poids;
+		this._masse = masse;
 		this._urlImage = url;
 	}
 
@@ -24,8 +24,8 @@ public class Objet {
 		return this._prix;
 	}
 
-	public int getPoids() {
-		return this._poids;
+	public int getMasse() {
+		return this._masse;
 	}
 
 	public String getUrlImage() {
@@ -41,8 +41,8 @@ public class Objet {
 		this._prix = p;
 	}
 
-	public void setPoids(int p) {
-		this._poids = p;
+	public void setMasse(int m) {
+		this._masse = m;
 	}
 
 	public void setUrlImage(String u) {
