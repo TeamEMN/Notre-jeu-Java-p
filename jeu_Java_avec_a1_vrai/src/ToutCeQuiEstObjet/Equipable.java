@@ -1,27 +1,27 @@
 package ToutCeQuiEstObjet;
 
 public class Equipable extends Objet {
-	// privates
-	// bonus : lorsque Equip est équipé, l'utilisateur reçoit comme bonus d'attaque absolu Equip._bonusAttaque (idem pour les 4 autres)
-	private int _bonusPointsDeVie;
+	// Variables privées
+	// Bonus : lorsque Equip est équipé, l'utilisateur reçoit comme bonus d'attaque absolu Equip._bonusAttaque (idem pour les 4 autres)
+	private int _bonusHp;
 	private int _bonusAttaque;
 	private int _bonusDefense;
 	private int _bonusVitesse;
 	private int _bonusMana;
 	
-	// constructeur
-	public Equipable(String nom, int prix, int masse, String url, int bonusPDV, int bonusA, int bonusD, int bonusV, int bonusM) {
+	// Constructeur
+	public Equipable(String nom, int prix, int masse, String url, int bonusHp, int bonusA, int bonusD, int bonusV, int bonusM) {
 		super(nom, prix, masse, url);
-		this._bonusPointsDeVie = bonusPDV;
+		this._bonusHp = bonusHp;
 		this._bonusAttaque = bonusA;
 		this._bonusDefense = bonusD;
 		this._bonusVitesse = bonusV;
 		this._bonusMana = bonusM;
 	}
 	
-	// gets
-	public float getBonusPointsDeVie() {
-		return this._bonusPointsDeVie;
+	// Getters
+	public float getBonusHp() {
+		return this._bonusHp;
 	}
 	
 	public float getBonusAttaque() {
@@ -40,9 +40,9 @@ public class Equipable extends Objet {
 		return this._bonusMana;
 	}
 	
-	// sets
-	public void setBonusPointsDeVie(int b) {
-		this._bonusPointsDeVie = b;
+	// Setters
+	public void setBonusHp(int b) {
+		this._bonusHp = b;
 	}
 	
 	public void setBonusAttaque(int b) {

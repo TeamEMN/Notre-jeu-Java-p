@@ -1,13 +1,13 @@
 package ToutCeQuiEstObjet;
 
 public class Objet {
-	// privates
+	// Variables privées
 	private String _nom;
 	private int _prix;
 	private int _masse;
 	private String _urlImage;
 	
-	// constructeur
+	// Constructeur
 	public Objet(String nom, int prix, int masse, String url) {
 		this._nom = nom;
 		this._prix = prix;
@@ -15,7 +15,7 @@ public class Objet {
 		this._urlImage = url;
 	}
 	
-	// gets
+	// Getters
 	public String getNom() {
 		return this._nom;
 	}
@@ -32,7 +32,7 @@ public class Objet {
 		return this._urlImage;
 	}
 	
-	// sets
+	// Setters
 	public void setNom(String n) {
 		this._nom = n;
 	}

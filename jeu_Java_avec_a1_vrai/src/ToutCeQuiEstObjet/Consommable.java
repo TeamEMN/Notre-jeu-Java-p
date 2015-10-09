@@ -1,76 +1,88 @@
 package ToutCeQuiEstObjet;
 
+import ToutCeQuiPeutVivre.Vivant;
+
 public class Consommable extends Objet {
-	// privates
-	// modificateurs : lorsque Conso est utilisé, l'attaque globale de l'utilisateur est multipliée par Conso._modifAttaque (idem pour les 4 autres)
-	private float _modifPointsDeVie;
-	private float _modifAttaque;
-	private float _modifDefense;
-	private float _modifVitesse;
-	private float _modifMana;
-	// généralement les potions et élixirs ont un effet limité dans le temps, je propose donc de noter leur durée d'efficacité en secondes ici
-	// mais il ne faut pas non plus que ça pose problème pour les potions de soin par exemple
-	private int _dureeEffet;
+	// Variables privées
+	// Bonus (ou malus...) : lorsque Conso est utilisé, les HP (ou mana) actuels sont modifiés
+	private int _modifHp;
+	private int _modifMana;
+	// Coefficients : lorsque Conso est utilisé, l'attaque globale de l'utilisateur est multipliée par Conso._coeffAttaque (idem pour les 2 autres)
+	private double _coeffAttaque;
+	private double _coeffDefense;
+	private double _coeffVitesse;
 	
-	// constructeur
-	public Consommable(String nom, int prix, int masse, String url, float modifPDV, float modifA, float modifD, float modifV, float modifM, int duree) {
+	// Constructeur
+	public Consommable(String nom, int prix, int masse, String url, int modifHp, int modifM, double coeffA, double coeffD, double coeffV) {
 		super(nom, prix, masse, url);
-		this._modifPointsDeVie = modifPDV;
-		this._modifAttaque = modifA;
-		this._modifDefense = modifD;
-		this._modifVitesse = modifV;
+		this._modifHp = modifHp;
 		this._modifMana = modifM;
-		this._dureeEffet = duree;
+		this._coeffAttaque = coeffA;
+		this._coeffDefense = coeffD;
+		this._coeffVitesse = coeffV;
 	}
 	
-	// gets
-	public float getModifPointsDeVie() {
-		return this._modifPointsDeVie;
+	// Getters
+	public int getModifHp() {
+		return this._modifHp;
 	}
 	
-	public float getModifAttaque() {
-		return this._modifAttaque;
-	}
-	
-	public float getModifDefense() {
-		return this._modifDefense;
-	}
-	
-	public float getModifVitesse() {
-		return this._modifVitesse;
-	}
-	
-	public float getModifMana() {
+	public int getModifMana() {
 		return this._modifMana;
 	}
 	
-	public int getDureeEffet() {
-		return this._dureeEffet;
+	public double getCoeffAttaque() {
+		return this._coeffAttaque;
 	}
 	
-	// sets
-	public void setModifPointsDeVie(float m) {
-		this._modifPointsDeVie = m;
+	public double getCoeffDefense() {
+		return this._coeffDefense;
 	}
 	
-	public void setModifAttaque(float m) {
-		this._modifAttaque = m;
+	public double getCoeffVitesse() {
+		return this._coeffVitesse;
 	}
 	
-	public void setModifDefense(float m) {
-		this._modifDefense = m;
+	// Setters
+	public void setModifHp(int m) {
+		this._modifHp = m;
 	}
 	
-	public void setModifVitesse(float m) {
-		this._modifVitesse = m;
-	}
-	
-	public void setModifMana(float m) {
+	public void setModifMana(int m) {
 		this._modifMana = m;
 	}
 	
-	public void setDureeEffet(int d) {
-		this._dureeEffet = d;
+	public void setCoeffAttaque(double c) {
+		this._coeffAttaque = c;
+	}
+	
+	public void setCoeffDefense(double c) {
+		this._coeffDefense = c;
+	}
+	
+	public void setCoeffVitesse(double c) {
+		this._coeffVitesse = c;
+	}
+	
+	// Utilisation
+	public void consommer(Vivant cible) {
+		// Modifications (Hp et Mana)
+		if (this.getModifHp() < 0) {
+			cible.perdreHp(this.getModifHp());
+		} else if (this.getModifHp() > 0) {
+			cible.recupererHp(this.getModifHp());
+		}
+		
+		if (this.getModifMana() < 0) {
+			cible.perdreMana(this.getModifMana());
+		} else if (this.getModifMana() > 0) {
+			cible.recupererMana(this.getModifMana());
+		}
+		
+		// Altérations (Att, Def, Vit)
+		cible.modifModAttaque(this.getCoeffAttaque());
+		cible.modifModDefense(this.getCoeffDefense());
+		cible.modifModVitesse(this.getCoeffVitesse());
 	}
 	
 }
