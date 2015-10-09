@@ -19,7 +19,7 @@ public class Vivant{
 	private int _vitesse;
 	private Attaque[] _listeAttaque;
 	
-	//statistiques liées a des alterations d'etat (potion, sort, competence...) multiplicatif
+	//statistiques liées a des alterations d'etat (potion, sort, competence...) 
 	private int _modAttaque;
 	private int _modDefense;
 	private int _modVitesse;
@@ -245,6 +245,7 @@ public class Vivant{
 	 */
 	
 	//retire x hp a this, si x est negatif, leve une exception!!
+	//Test: ok
 	public void perdreHp(int x){
 		if(x>0){
 			this.setHp(this.getHp()-x);
@@ -254,7 +255,8 @@ public class Vivant{
 		}
 	}
 	//rend x hp a this, si x est negatif, leve une exception!!
-		public void recupererHp(int x){
+	//Test:ok	
+	public void recupererHp(int x){
 			if(x>0&&x<this.getHpMax()-this.getHp()){
 				this.setHp(this.getHp()+x);
 			}
@@ -265,6 +267,34 @@ public class Vivant{
 				throw new IllegalArgumentException("x doit etre positif!");
 			}
 		}
+	/*
+	 * donne a _modAttaque une valeur egal à x*attaqueGlobal + le _modAttaque precedent
+	 * Test:Non
+	 */
+	public void modifModAttaque(double x){
+		this.setModAttaque((int)(this.getModAttaque()+
+				x*(this.getAttaque()+this.getAttaqueEquipement())));
+		
+	}
+	/*
+	 * donne a _modDefense une valeur egal à x*defenseGlobal + le _modDefense precedent
+	 * Test:Non
+	 */
+	public void modifModDefense(double x){
+		this.setModDefense((int)(this.getModDefense()+
+				x*(this.getDefense()+this.getDefenseEquipement())));
+		
+	}
+	/*
+	 * donne a _modVitesse une valeur egal à x*vitesseGlobal + le _modVitesse precedent
+	 * Test:Non
+	 */
+	public void modifModVitesse(double x){
+		this.setModVitesse((int)(this.getModVitesse()+
+				x*(this.getVitesse()+this.getVitesseEquipement())));
+		
+	}
+	
 	
 	/*
 	 * determine si l'attaque est efficace contre le pokemon attaqué
