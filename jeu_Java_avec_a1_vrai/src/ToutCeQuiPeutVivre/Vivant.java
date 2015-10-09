@@ -253,6 +253,18 @@ public class Vivant{
 			throw new IllegalArgumentException("x doit etre positif!");
 		}
 	}
+	//rend x hp a this, si x est negatif, leve une exception!!
+		public void recupererHp(int x){
+			if(x>0&&x<this.getHpMax()-this.getHp()){
+				this.setHp(this.getHp()+x);
+			}
+			else if (x>this.getHpMax()-this.getHp()){
+				this.setHp(this.getHpMax());
+			}
+			else {
+				throw new IllegalArgumentException("x doit etre positif!");
+			}
+		}
 	
 	/*
 	 * determine si l'attaque est efficace contre le pokemon attaqué
@@ -420,7 +432,12 @@ public class Vivant{
 	}
 
 
-
+	public static void main(String[] args) {
+		Vivant grr = new Vivant(null, "feu");
+		grr.perdreHp(555);
+		grr.recupererHp(400);
+		System.out.println(grr.getHp());
+	}
 	
 
 
