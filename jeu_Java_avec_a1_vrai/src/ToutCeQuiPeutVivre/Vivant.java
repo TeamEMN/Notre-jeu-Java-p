@@ -277,6 +277,13 @@ public class Vivant{
 		
 	}
 	/*
+	 * reset le modAttaque à 0
+	 * Test:non
+	 */
+	public void resetModAttaque(){
+		this.setModAttaque(0);
+	}
+	/*
 	 * donne a _modDefense une valeur egal à x*defenseGlobal + le _modDefense precedent
 	 * Test:Non
 	 */
@@ -284,6 +291,13 @@ public class Vivant{
 		this.setModDefense((int)(this.getModDefense()+
 				x*(this.getDefense()+this.getDefenseEquipement())));
 		
+	}
+	/*
+	 * reset le modDefense à 0
+	 * Test:non
+	 */
+	public void resetModDefense(){
+		this.setModDefense(0);
 	}
 	/*
 	 * donne a _modVitesse une valeur egal à x*vitesseGlobal + le _modVitesse precedent
@@ -294,6 +308,40 @@ public class Vivant{
 				x*(this.getVitesse()+this.getVitesseEquipement())));
 		
 	}
+	/*
+	 * reset le modVitesse à 0
+	 * Test:non
+	 */
+	public void resetModVitesse(){
+		this.setModVitesse(0);
+	}
+	
+	//retire x mana a this, si x est negatif, leve une exception!!
+	//Test: Non
+	public void perdreMana(int x){
+		if(x>0&&x<this.getMana()){
+			this.setMana(this.getMana()-x);
+		}
+		else if(x>this.getMana()){
+			throw new IllegalArgumentException("pas assez de mana!");
+		}
+		else {
+			throw new IllegalArgumentException("x doit etre positif!");
+		}
+	}
+	//rend x mana a this, si x est negatif, leve une exception!!
+	//Test:non	
+	public void recupererMana(int x){
+			if(x>0&&x<this.getManaMax()-this.getMana()){
+				this.setMana(this.getMana()+x);
+			}
+			else if (x>this.getManaMax()-this.getMana()){
+				this.setMana(this.getManaMax());
+			}
+			else {
+				throw new IllegalArgumentException("x doit etre positif!");
+			}
+		}
 	
 	
 	/*
