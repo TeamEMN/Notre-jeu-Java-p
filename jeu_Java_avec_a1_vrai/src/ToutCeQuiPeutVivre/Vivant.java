@@ -8,6 +8,8 @@ import LesActionsSpecials.Attaque;
 
 public class Vivant{
 //variable
+	
+	//statistiques de base du personnage
 	private int _hp;
 	private int _hpMax;
 	private int _mana;
@@ -17,21 +19,27 @@ public class Vivant{
 	private int _vitesse;
 	private Attaque[] _listeAttaque;
 	
+	//statistiques liées a des alterations d'etat (potion, sort, competence...) multiplicatif
 	private int _modAttaque;
 	private int _modDefense;
 	private int _modVitesse;
 	
+	//statistique accordé par l'equipement
 	private int _attaqueEquipement;
 	private int _defenseEquipement;
+	private int _vitesseEquipement;
+	private int _manaMaxEquipement;
+	private int _hpMaxEquipement;
 	
 	
 	private String _type;
 	
-
+	// donnée specifique à la gestion du mouvement du personnage.
 	private int _vitesseX;
 	private int _vitesseY;
 	private int _accelerationX;
 	private int _accelerationY;
+	
 	//private inventaire monInventaire;
 	
 	
@@ -40,8 +48,18 @@ public class Vivant{
 	
 	public Vivant(int hpMax,int manaMax, int attaque, int defense, 
 					Attaque[] listeAttaque,	int modAttaque, 
-					int modDefense, String type, int vitesse, int modVitesse,
+					int modDefense,int modVitesse,int attaqueEquipement, int defenseEquipement,
+					int vitesseEquipement, int manaMaxEquipement, int hpMaxEquipement,
+					String type, int vitesse, 
 					int vitesseX,int vitesseY, int accelerationX, int accelerationY){
+		
+		
+		_attaqueEquipement=attaqueEquipement;
+		_defenseEquipement=defenseEquipement;
+		_vitesseEquipement=vitesseEquipement;
+		_manaMaxEquipement=manaMaxEquipement;
+		_hpMaxEquipement=hpMaxEquipement;
+		
 		_hp=hpMax;
 		_mana=manaMax;
 		_manaMax=manaMax;
@@ -50,6 +68,7 @@ public class Vivant{
 		_listeAttaque=listeAttaque;
 		_modAttaque=modAttaque;
 		_modDefense=modDefense;
+		_modVitesse=modVitesse;
 		_hpMax=hpMax;
 		_type=type;
 		_vitesse=vitesse;
@@ -59,15 +78,24 @@ public class Vivant{
 		_accelerationY=accelerationY;
 		
 	}
+	
+	//contructeur permettant de generer un VIvant test facilement
 	public Vivant(Attaque[] listeAtt, String type){
+		_attaqueEquipement=0;
+		_defenseEquipement=0;
+		_vitesseEquipement=0;
+		_manaMaxEquipement=0;
+		_hpMaxEquipement=0;
+		
 		_hp=100;
 		_mana=100;
 		_manaMax=100;
-		_attaque=20;
-		_defense=20;
+		_attaque=40;
+		_defense=40;
 		_listeAttaque=listeAtt;
 		_modAttaque=0;
 		_modDefense=0;
+		_modVitesse=0;
 		_hpMax=100;
 		_type=type;
 		_vitesse=50;
@@ -76,104 +104,150 @@ public class Vivant{
 		_accelerationX=0;
 		_accelerationY=0;
 	}
-	//getteur (tout es ok)
+	//getteur (tout es ok car autogenere)
 
 	public int getHp() {
-		// TODO Auto-generated method stub
 		return _hp;
 	}
-
-
-
-	public int getAttaque() {
-		// TODO Auto-generated method stub
-		return _attaque;
-	}
-
-
-	public int getDefense() {
-		// TODO Auto-generated method stub
-		return _defense;
-	}
-
-	
-	public Attaque[] getListeAttaque() {
-		// TODO Auto-generated method stub
-		return _listeAttaque;
-	}
-
-
 	public int getHpMax() {
-		// TODO Auto-generated method stub
 		return _hpMax;
 	}
-	
-	
-	public String getType(){
-	return _type;
+	public int getMana() {
+		return _mana;
 	}
-	
-	public int getVitesse(){
+	public int getManaMax() {
+		return _manaMax;
+	}
+	public int getAttaque() {
+		return _attaque;
+	}
+	public int getDefense() {
+		return _defense;
+	}
+	public int getVitesse() {
 		return _vitesse;
 	}
-	//-----------------------------------------------------------------------
-	
-	//Setteur (tout est ok)
-	
-	
-
-	public void setHp(int x) {
-		// TODO Auto-generated method stub
-		_hp=x;
+	public Attaque[] getListeAttaque() {
+		return _listeAttaque;
 	}
-
-
-	public void setNom(String s){
-		_nom=s;
+	public int getModAttaque() {
+		return _modAttaque;
 	}
-	
-	
-	public void setLv(int x) {
-		// TODO Auto-generated method stub
-		_lv=x;
+	public int getModDefense() {
+		return _modDefense;
 	}
-
-
-		public void setAttaque(int x) {
-		// TODO Auto-generated method stub
-		_attaque=x;
+	public int getModVitesse() {
+		return _modVitesse;
 	}
-
-
-	public void setDefense(int x) {
-		// TODO Auto-generated method stub
-		_defense=x;
+	public int getAttaqueEquipement() {
+		return _attaqueEquipement;
 	}
-
-
-	public void setListeAttaque(Attaque[] l) {
-		// TODO Auto-generated method stub
-		_listeAttaque=l;
+	public int getDefenseEquipement() {
+		return _defenseEquipement;
 	}
-	
-
-	public void setHpMax(int x) {
-		// TODO Auto-generated method stub
-		_hpMax=x;
+	public int getVitesseEquipement() {
+		return _vitesseEquipement;
+	}
+	public int getManaMaxEquipement() {
+		return _manaMaxEquipement;
+	}
+	public int getHpMaxEquipement() {
+		return _hpMaxEquipement;
+	}
+	public String getType() {
+		return _type;
+	}
+	public int getVitesseX() {
+		return _vitesseX;
+	}
+	public int getVitesseY() {
+		return _vitesseY;
+	}
+	public int getAccelerationX() {
+		return _accelerationX;
+	}
+	public int getAccelerationY() {
+		return _accelerationY;
 	}
 	
-	
-	public void setType(String s){
-		_type=s;
+	//Setteur (idem)
+	public void setHp(int _hp) {
+		this._hp = _hp;
+	}
+	public void setHpMax(int _hpMax) {
+		this._hpMax = _hpMax;
+	}
+	public void setMana(int _mana) {
+		this._mana = _mana;
+	}
+	public void setManaMax(int _manaMax) {
+		this._manaMax = _manaMax;
+	}
+	public void setAttaque(int _attaque) {
+		this._attaque = _attaque;
+	}
+	public void setDefense(int _defense) {
+		this._defense = _defense;
+	}
+	public void setVitesse(int _vitesse) {
+		this._vitesse = _vitesse;
+	}
+	public void setListeAttaque(Attaque[] _listeAttaque) {
+		this._listeAttaque = _listeAttaque;
+	}
+	public void setModAttaque(int _modAttaque) {
+		this._modAttaque = _modAttaque;
+	}
+	public void setModDefense(int _modDefense) {
+		this._modDefense = _modDefense;
+	}
+	public void setModVitesse(int _modVitesse) {
+		this._modVitesse = _modVitesse;
+	}
+	public void setAttaqueEquipement(int _attaqueEquipement) {
+		this._attaqueEquipement = _attaqueEquipement;
+	}
+	public void setDefenseEquipement(int _defenseEquipement) {
+		this._defenseEquipement = _defenseEquipement;
+	}
+	public void setVitesseEquipement(int _vitesseEquipement) {
+		this._vitesseEquipement = _vitesseEquipement;
+	}
+	public void setManaMaxEquipement(int _manaMaxEquipement) {
+		this._manaMaxEquipement = _manaMaxEquipement;
+	}
+	public void setHpMaxEquipement(int _hpMaxEquipement) {
+		this._hpMaxEquipement = _hpMaxEquipement;
+	}
+	public void setType(String _type) {
+		this._type = _type;
+	}
+	public void setVitesseX(int _vitesseX) {
+		this._vitesseX = _vitesseX;
+	}
+	public void setVitesseY(int _vitesseY) {
+		this._vitesseY = _vitesseY;
+	}
+	public void setAccelerationX(int _accelerationX) {
+		this._accelerationX = _accelerationX;
+	}
+	public void setAccelerationY(int _accelerationY) {
+		this._accelerationY = _accelerationY;
 	}
 	
-	
-	public void setVitesse(int v){
-		_vitesse = v;
-	}
 	//---------------------------------------------------------------------------------------------
 	
 	//Methode!
+	
+	//retire x hp a this, si x est negatif, leve une exception!!
+	public void perdreHp(int x){
+		if(x>0){
+			this.setHp(this.getHp()-x);
+		}
+		else {
+			throw new IllegalArgumentException("x doit etre positif!");
+		}
+	}
 
 	/*
 	 * methode retournant la liste des attaques du miramon sous forme de string
@@ -196,7 +270,7 @@ public class Vivant{
 	 */
 	public String ChoixAttaqueParUser(){
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Quelle attaque "+this.getNom()+" doit'il utiliser?");
+		//System.out.println("Quelle attaque "+this.getNom()+" doit'il utiliser?");
 		System.out.println("attaque disponible : " +this.toStringListeAttaqueDispo());
 		String attaqueChoisie = sc.nextLine();
 		int compteur = 0;
@@ -272,7 +346,7 @@ public class Vivant{
 	public void attaquerAvecDialogue(Vivant m, Attaque a) {
 		int efficacite = 2;
 		if (a.reussir()){
-			System.out.println(this.getNom()+" utilise l'attaque "+a.getNom());
+			//System.out.println(this.getNom()+" utilise l'attaque "+a.getNom());
 			if (m.estEfficace(a)){
 				System.out.println("C'est super efficace!");
 				efficacite=4;
@@ -312,14 +386,7 @@ public class Vivant{
 		
 	}
 
-	/*
-	 * reduit les hp du miramon de x
-	 * TEST:OK
-	 */
-	public void perdreHp(int x) {
-		// TODO Auto-generated method stub
-		this.setHp(this.getHp()-x);
-	}
+
 	
 	/*
 	 * retourne un String de la forme hpActuel/hpmax
