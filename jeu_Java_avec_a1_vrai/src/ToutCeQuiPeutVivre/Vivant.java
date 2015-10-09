@@ -237,7 +237,12 @@ public class Vivant{
 	
 	//---------------------------------------------------------------------------------------------
 	
-	//Methode!
+	//Methode! 
+	
+	/*
+	 * celle que vous devez utiliser!!!
+	 * 
+	 */
 	
 	//retire x hp a this, si x est negatif, leve une exception!!
 	public void perdreHp(int x){
@@ -248,6 +253,86 @@ public class Vivant{
 			throw new IllegalArgumentException("x doit etre positif!");
 		}
 	}
+	
+	/*
+	 * determine si l'attaque est efficace contre le pokemon attaqué
+	 * TEST: Ok
+	 */
+	public boolean estEfficace(Attaque a){
+		Boolean aRetourner = false;
+		String[] tableElements = {"eau", "plante", "feu", "eau"};
+		int i=0;
+		while(!this.getType().equals(tableElements[i])){
+			i++;
+		}
+		if(a.getType().equals(tableElements[i+1])){
+			aRetourner = true;
+		}
+		return aRetourner;
+		}
+	
+	/*
+	 * determine si l'Attaque est particulierement inefficace contre ce miramon.
+	 * TEST: Ok
+	 */
+	public boolean NEstPasEfficace(Attaque a){
+		Boolean aRetourner = false;
+		String[] tableElements = {"eau", "feu", "plante", "eau"};
+		int i=0;
+		while(!this.getType().equals(tableElements[i])){
+			i++;
+		}
+		if(a.getType().equals(tableElements[i+1])){
+			aRetourner = true;
+		}
+		return aRetourner;
+		}
+	
+	public void Attaquer(Vivant m, Attaque a) {
+		int efficacite = 2;
+		if (a.reussir()){
+			if (m.estEfficace(a)){
+				efficacite=4;
+			}
+			else if(m.NEstPasEfficace(a)){
+				efficacite=1;
+			}
+			int degatInflige = (int) (efficacite*a.getPuissance()*this.getAttaque()/m.getDefense());
+			m.perdreHp(degatInflige);
+			
+		}
+		
+		
+	}
+	
+	public void LvUp() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
+	/*
+	 * retourne un String de la forme hpActuel/hpmax
+	 * TEST:OK
+	 */
+	public String toStringPvActuel(){
+		String aRetourner=this.getHp()+"/"+this.getHpMax()+"HP";
+		return aRetourner;
+	}
+	
+	/*
+	 * check si le miramon est ko (pv inferieur ou egaux à 0)
+	 * TEST:Ok
+	 */
+		public Boolean estKo(){
+			return this.getHp()<=0;
+		}
+
+	
+	/*
+	 * fin des methodes utiles
+	 */
 
 	/*
 	 * methode retournant la liste des attaques du miramon sous forme de string
@@ -305,38 +390,8 @@ public class Vivant{
 		}
 		return aRetourner;
 	}
-	/*
-	 * determine si l'attaque est efficace contre le pokemon attaqué
-	 * TEST: Ok
-	 */
-	public boolean estEfficace(Attaque a){
-		Boolean aRetourner = false;
-		String[] tableElements = {"eau", "plante", "feu", "eau"};
-		int i=0;
-		while(!this.getType().equals(tableElements[i])){
-			i++;
-		}
-		if(a.getType().equals(tableElements[i+1])){
-			aRetourner = true;
-		}
-		return aRetourner;
-		}
-	/*
-	 * determine si l'Attaque est particulierement inefficace contre ce miramon.
-	 * TEST: Ok
-	 */
-	public boolean NEstPasEfficace(Attaque a){
-		Boolean aRetourner = false;
-		String[] tableElements = {"eau", "feu", "plante", "eau"};
-		int i=0;
-		while(!this.getType().equals(tableElements[i])){
-			i++;
-		}
-		if(a.getType().equals(tableElements[i+1])){
-			aRetourner = true;
-		}
-		return aRetourner;
-		}
+
+
 	/*
 	 * Methode permettant a un miramon de tenter d'en attaquer un second (m) avec une attaque (a)
 	 * en cas desucces lesdegats sont calculé en fonction de l'attaque de this, la defense de m
@@ -363,46 +418,10 @@ public class Vivant{
 		
 		
 	}
-	public void Attaquer(Vivant m, Attaque a) {
-		int efficacite = 2;
-		if (a.reussir()){
-			if (m.estEfficace(a)){
-				efficacite=4;
-			}
-			else if(m.NEstPasEfficace(a)){
-				efficacite=1;
-			}
-			int degatInflige = (int) (efficacite*a.getPuissance()*this.getAttaque()/m.getDefense());
-			m.perdreHp(degatInflige);
-			
-		}
-		
-		
-	}
 
-
-	public void LvUp() {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 	
-	/*
-	 * retourne un String de la forme hpActuel/hpmax
-	 * TEST:OK
-	 */
-	public String toStringPvActuel(){
-		String aRetourner=this.getHp()+"/"+this.getHpMax()+"HP";
-		return aRetourner;
-	}
-/*
- * check si le miramon est ko (pv inferieur ou egaux à 0)
- * TEST:Ok
- */
-	public Boolean estKo(){
-		return this.getHp()<=0;
-	}
 
 
 
