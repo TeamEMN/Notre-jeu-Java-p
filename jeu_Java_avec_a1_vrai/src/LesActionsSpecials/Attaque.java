@@ -1,6 +1,8 @@
 package LesActionsSpecials;
 
 
+
+
 public class Attaque{
 	
 	//Variable
@@ -10,18 +12,19 @@ public class Attaque{
 	/*
 	 * Defini le type de l'attaque, peut etre de type eau terre feu ou air 
 	 */
-	public String _type;
+	private String _type;
 	
 	/*
 	 * Determine les chances de succes (en pourcentage) de l'attaque
 	 */
-	public int _precision;
+	private int _precision;
 	
 	/*
 	 * Determine les degats infligés par l'attaque
 	 */
-	public int _puissance;
-	public String _nom;
+	private int _puissance;
+	private String _nom;
+	private int _coutMana;
 
 
 	//------------------------------------------------------------------------------------------------------

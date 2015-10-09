@@ -247,7 +247,7 @@ public class Vivant{
 	//retire x hp a this, si x est negatif, leve une exception!!
 	//Test: ok
 	public void perdreHp(int x){
-		if(x>0){
+		if(x>=0){
 			this.setHp(this.getHp()-x);
 		}
 		else {
@@ -257,7 +257,7 @@ public class Vivant{
 	//rend x hp a this, si x est negatif, leve une exception!!
 	//Test:ok	
 	public void recupererHp(int x){
-			if(x>0&&x<this.getHpMax()-this.getHp()){
+			if(x>=0&&x<=this.getHpMax()-this.getHp()){
 				this.setHp(this.getHp()+x);
 			}
 			else if (x>this.getHpMax()-this.getHp()){
@@ -269,7 +269,7 @@ public class Vivant{
 		}
 	/*
 	 * donne a _modAttaque une valeur egal à x*attaqueGlobal + le _modAttaque precedent
-	 * Test:Non
+	 * Test:ok
 	 */
 	public void modifModAttaque(double x){
 		this.setModAttaque((int)(this.getModAttaque()+
@@ -278,14 +278,14 @@ public class Vivant{
 	}
 	/*
 	 * reset le modAttaque à 0
-	 * Test:non
+	 * Test:ok
 	 */
 	public void resetModAttaque(){
 		this.setModAttaque(0);
 	}
 	/*
 	 * donne a _modDefense une valeur egal à x*defenseGlobal + le _modDefense precedent
-	 * Test:Non
+	 * Test:ok
 	 */
 	public void modifModDefense(double x){
 		this.setModDefense((int)(this.getModDefense()+
@@ -294,14 +294,14 @@ public class Vivant{
 	}
 	/*
 	 * reset le modDefense à 0
-	 * Test:non
+	 * Test:ok
 	 */
 	public void resetModDefense(){
 		this.setModDefense(0);
 	}
 	/*
 	 * donne a _modVitesse une valeur egal à x*vitesseGlobal + le _modVitesse precedent
-	 * Test:Non
+	 * Test:ok
 	 */
 	public void modifModVitesse(double x){
 		this.setModVitesse((int)(this.getModVitesse()+
@@ -310,16 +310,16 @@ public class Vivant{
 	}
 	/*
 	 * reset le modVitesse à 0
-	 * Test:non
+	 * Test:ok
 	 */
 	public void resetModVitesse(){
 		this.setModVitesse(0);
 	}
 	
 	//retire x mana a this, si x est negatif, leve une exception!!
-	//Test: Non
+	//Test: ok
 	public void perdreMana(int x){
-		if(x>0&&x<this.getMana()){
+		if(x>=0&&x<this.getMana()){
 			this.setMana(this.getMana()-x);
 		}
 		else if(x>this.getMana()){
@@ -330,9 +330,9 @@ public class Vivant{
 		}
 	}
 	//rend x mana a this, si x est negatif, leve une exception!!
-	//Test:non	
+	//Test:ok
 	public void recupererMana(int x){
-			if(x>0&&x<this.getManaMax()-this.getMana()){
+			if(x>=0&&x<=this.getManaMax()-this.getMana()){
 				this.setMana(this.getMana()+x);
 			}
 			else if (x>this.getManaMax()-this.getMana()){
@@ -512,9 +512,9 @@ public class Vivant{
 
 	public static void main(String[] args) {
 		Vivant grr = new Vivant(null, "feu");
-		grr.perdreHp(555);
-		grr.recupererHp(400);
-		System.out.println(grr.getHp());
+		grr.perdreMana(50);
+		grr.recupererMana(-2);
+		System.out.println(grr.getMana());
 	}
 	
 
