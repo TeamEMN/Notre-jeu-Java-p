@@ -6,13 +6,27 @@ import ToutCeQuiPeutVivre.Vivant;
 public class Physique {
 	
 	private ArrayList<Force> _listeForces;
-	
-	public ArrayList<Force> getListeForces() {
-		return _listeForces;
-	}
+	private int _dt; //Alexis : À voir si on la hardcode ici on si on la met dans une autre classe
 	
 	public Physique(ArrayList<Force> listeForces) {
 		this._listeForces = listeForces;
+	}
+	
+	
+	//getteurs
+	public ArrayList<Force> getListeForces() {
+		return _listeForces;
+	}
+	public int getdt() {
+		return _dt;
+	}
+	
+	//setteurs
+	public void setListeForces(ArrayList<Force> _listeForces) {
+		this._listeForces = _listeForces;
+	}
+	public void setDt(int _dt) {
+		this._dt = _dt;
 	}
 	
 	public void Newton(Vivant vivant) {
@@ -28,10 +42,10 @@ public class Physique {
 		vivant.setAccelerationY(SommeForceVivantY/vivant.getMasse()); //Alexis : on balance l'accélération en y dans vivant
 	}
 	 public void Integration(Vivant vivant) {
-		 int dt = 1; //Alexis : À voir si on la hardcode ici on si on la met en argument (ou dans une autre classe)
 		 vivant.setVitesseX(vivant.getVitesseX()+vivant.getAccelerationX()*dt);
 		 vivant.setVitesseY(vivant.getVitesseY()+vivant.getAccelerationY()*dt);
-		 vivant.set
+		 vivant.setPositionX(vivant.getPositionX()+vivant.getVitesseX()*dt);
+		 vivant.setPositionY(vivant.getPositionY()+vivant.getVitesseY()*dt);
 		 
 	 }
 	
