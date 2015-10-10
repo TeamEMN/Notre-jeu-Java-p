@@ -21,3 +21,4 @@ public class Obstacle extends Rectangles {
 }
 
 // TO DO : Mur, Plateforme, Hitbox
+// Provençal : Un obstacle est une liste de rectangles, il va donc falloir modifier tout ça. C'est déjà prêt sur mon PC, il ne me manque qu'à push
