@@ -19,12 +19,12 @@ public class Vivant{
 	private int _vitesse;
 	private Attaque[] _listeAttaque;
 	
-	//statistiques liées a des alterations d'etat (potion, sort, competence...) 
+	//statistiques liï¿½es a des alterations d'etat (potion, sort, competence...) 
 	private int _modAttaque;
 	private int _modDefense;
 	private int _modVitesse;
 	
-	//statistique accordé par l'equipement
+	//statistique accordï¿½ par l'equipement
 	private int _attaqueEquipement;
 	private int _defenseEquipement;
 	private int _vitesseEquipement;
@@ -34,7 +34,8 @@ public class Vivant{
 	
 	private String _type;
 	
-	// donnée specifique à la gestion du mouvement du personnage.
+	// donnï¿½e specifique ï¿½ la gestion du mouvement du personnage.
+	private int _masse; // Alexis : ajout d'une masse pour l'utilisation de Physique.Newton(vivant)
 	private int _vitesseX;
 	private int _vitesseY;
 	private int _accelerationX;
@@ -51,7 +52,7 @@ public class Vivant{
 					int modDefense,int modVitesse,int attaqueEquipement, int defenseEquipement,
 					int vitesseEquipement, int manaMaxEquipement, int hpMaxEquipement,
 					String type, int vitesse, 
-					int vitesseX,int vitesseY, int accelerationX, int accelerationY){
+					int vitesseX,int vitesseY, int accelerationX, int accelerationY, int masse){
 		
 		
 		_attaqueEquipement=attaqueEquipement;
@@ -76,6 +77,7 @@ public class Vivant{
 		_vitesseY=vitesseY;
 		_accelerationX=accelerationX;
 		_accelerationY=accelerationY;
+		_masse=masse; //Alexis : ajout de masse dans le constructeur par dÃ©faut
 		
 	}
 	
@@ -103,9 +105,13 @@ public class Vivant{
 		_vitesseY=0;
 		_accelerationX=0;
 		_accelerationY=0;
+		_masse=20; //Alexis : ajout de masse dans le constructeur test 
 	}
 	//getteur (tout es ok car autogenere)
-
+	
+	public int getMasse() { //Alexis : getteur pour _masse
+		return _masse;
+	}
 	public int getHp() {
 		return _hp;
 	}
@@ -171,6 +177,9 @@ public class Vivant{
 	}
 	
 	//Setteur (idem)
+	public void setMasse(int _masse) { //Alexis : Setteur pour masse
+		this._masse = _masse;
+	}
 	public void setHp(int _hp) {
 		this._hp = _hp;
 	}
@@ -268,7 +277,7 @@ public class Vivant{
 			}
 		}
 	/*
-	 * donne a _modAttaque une valeur egal à x*attaqueGlobal + le _modAttaque precedent
+	 * donne a _modAttaque une valeur egal ï¿½ x*attaqueGlobal + le _modAttaque precedent
 	 * Test:ok
 	 */
 	public void modifModAttaque(double x){
@@ -277,14 +286,14 @@ public class Vivant{
 		
 	}
 	/*
-	 * reset le modAttaque à 0
+	 * reset le modAttaque ï¿½ 0
 	 * Test:ok
 	 */
 	public void resetModAttaque(){
 		this.setModAttaque(0);
 	}
 	/*
-	 * donne a _modDefense une valeur egal à x*defenseGlobal + le _modDefense precedent
+	 * donne a _modDefense une valeur egal ï¿½ x*defenseGlobal + le _modDefense precedent
 	 * Test:ok
 	 */
 	public void modifModDefense(double x){
@@ -293,14 +302,14 @@ public class Vivant{
 		
 	}
 	/*
-	 * reset le modDefense à 0
+	 * reset le modDefense ï¿½ 0
 	 * Test:ok
 	 */
 	public void resetModDefense(){
 		this.setModDefense(0);
 	}
 	/*
-	 * donne a _modVitesse une valeur egal à x*vitesseGlobal + le _modVitesse precedent
+	 * donne a _modVitesse une valeur egal ï¿½ x*vitesseGlobal + le _modVitesse precedent
 	 * Test:ok
 	 */
 	public void modifModVitesse(double x){
@@ -309,7 +318,7 @@ public class Vivant{
 		
 	}
 	/*
-	 * reset le modVitesse à 0
+	 * reset le modVitesse ï¿½ 0
 	 * Test:ok
 	 */
 	public void resetModVitesse(){
@@ -345,7 +354,7 @@ public class Vivant{
 	
 	
 	/*
-	 * determine si l'attaque est efficace contre le pokemon attaqué
+	 * determine si l'attaque est efficace contre le pokemon attaquï¿½
 	 * TEST: Ok
 	 */
 	public boolean estEfficace(Attaque a){
@@ -412,7 +421,7 @@ public class Vivant{
 	}
 	
 	/*
-	 * check si le miramon est ko (pv inferieur ou egaux à 0)
+	 * check si le miramon est ko (pv inferieur ou egaux ï¿½ 0)
 	 * TEST:Ok
 	 */
 		public Boolean estKo(){
@@ -484,7 +493,7 @@ public class Vivant{
 
 	/*
 	 * Methode permettant a un miramon de tenter d'en attaquer un second (m) avec une attaque (a)
-	 * en cas desucces lesdegats sont calculé en fonction de l'attaque de this, la defense de m
+	 * en cas desucces lesdegats sont calculï¿½ en fonction de l'attaque de this, la defense de m
 	 * le type de l'attaque et le type de m
 	 * Test:ok
 	 */
