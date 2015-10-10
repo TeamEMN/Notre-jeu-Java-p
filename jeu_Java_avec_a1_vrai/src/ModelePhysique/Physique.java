@@ -16,17 +16,18 @@ public class Physique {
 	}
 	
 	public void Newton(Vivant vivant) {
-		int SommeForceVivantX = 0;
-		int SommeForceVivantY = 0;
+		int SommeForceVivantX = 0; // Initialisation de la somme des forces projetées en x
+		int SommeForceVivantY = 0; // Initialisation de la somme des forces projetées en y
 		for (int i = 0; i < this.getListeForces().size(); i++) {
-			if (this.getListeForces().get(i).getVivant() == vivant) {
-				SommeForceVivantX += this.getListeForces().get(i).getIntensiteX();
-				SommeForceVivantY += this.getListeForces().get(i).getIntensiteY();
+			if (this.getListeForces().get(i).getVivant() == vivant) { // on ne prend que les forces affectées à vivant
+				SommeForceVivantX += this.getListeForces().get(i).getIntensiteX(); // on somme les forces en x
+				SommeForceVivantY += this.getListeForces().get(i).getIntensiteY(); // on somme les forces en y
 			}
 		}
-		vivant.setAccelerationX(SommeForceVivantX/vivant.getMasse());
-		vivant.setAccelerationY(SommeForceVivantY/vivant.getMasse());
+		vivant.setAccelerationX(SommeForceVivantX/vivant.getMasse()); // on balance l'accélération en x dans vivant 
+		vivant.setAccelerationY(SommeForceVivantY/vivant.getMasse()); // on balance l'accélération en y dans vivant
 	}
+	
 	
 
 }
