@@ -40,8 +40,6 @@ public class Vivant{
 	private int _vitesseY;
 	private int _accelerationX;
 	private int _accelerationY;
-	private int _positionX; //Alexis : ajout de posX
-	private int _positionY; //Alexis : ajout de posY
 	
 	//private inventaire monInventaire;
 	

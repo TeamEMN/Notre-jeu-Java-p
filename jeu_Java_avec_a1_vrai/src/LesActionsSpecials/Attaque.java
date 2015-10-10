@@ -39,6 +39,13 @@ public class Attaque{
 	}
 
 
+	public int get_coutMana() {
+		return _coutMana;
+	}
+
+
+	
+
 	public int getPuissance() {
 		
 		return _puissance;
@@ -79,6 +86,11 @@ public class Attaque{
 	public void setNom(String s){
 		_nom=s;
 	}
+	
+	public void set_coutMana(int _coutMana) {
+		this._coutMana = _coutMana;
+	}
+
 
 	//-------------------------------------------------------------------------------------------------------
 	
