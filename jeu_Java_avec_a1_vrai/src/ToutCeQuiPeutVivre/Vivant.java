@@ -40,6 +40,8 @@ public class Vivant{
 	private int _vitesseY;
 	private int _accelerationX;
 	private int _accelerationY;
+	private int _positionX; //Alexis : ajout de posX
+	private int _positionY; //Alexis : ajout de posY
 	
 	//private inventaire monInventaire;
 	
@@ -52,7 +54,7 @@ public class Vivant{
 					int modDefense,int modVitesse,int attaqueEquipement, int defenseEquipement,
 					int vitesseEquipement, int manaMaxEquipement, int hpMaxEquipement,
 					String type, int vitesse, 
-					int vitesseX,int vitesseY, int accelerationX, int accelerationY, int masse){
+					int vitesseX,int vitesseY, int accelerationX, int accelerationY, int masse, int positionX, int positionY){
 		
 		
 		_attaqueEquipement=attaqueEquipement;
@@ -78,7 +80,8 @@ public class Vivant{
 		_accelerationX=accelerationX;
 		_accelerationY=accelerationY;
 		_masse=masse; //Alexis : ajout de masse dans le constructeur par défaut
-		
+		_positionX = positionX; //Alexis : idem
+		_positionY = positionY; //Alexis : idem
 	}
 	
 	//contructeur permettant de generer un VIvant test facilement
@@ -106,9 +109,17 @@ public class Vivant{
 		_accelerationX=0;
 		_accelerationY=0;
 		_masse=20; //Alexis : ajout de masse dans le constructeur test 
+		_positionX = 50; //Alexis : idem
+		_positionY = 50; //Alexis : idem
 	}
 	//getteur (tout es ok car autogenere)
 	
+	public int getPositionX() { //Alexis : getteur pour _positionX
+		return _positionX;
+	}
+	public int getPositionY() { //Alexis : getteur pour _positionY
+		return _positionY;
+	}
 	public int getMasse() { //Alexis : getteur pour _masse
 		return _masse;
 	}
@@ -179,6 +190,12 @@ public class Vivant{
 	//Setteur (idem)
 	public void setMasse(int _masse) { //Alexis : Setteur pour masse
 		this._masse = _masse;
+	}
+	public void setPositionX(int _positionX) { //Alexis : Setteur pour positionX
+		this._positionX = _positionX;
+	}
+	public void setPositionY(int _positionY) { //Alexis : Setteur pour positionY
+		this._positionY = _positionY;
 	}
 	public void setHp(int _hp) {
 		this._hp = _hp;
