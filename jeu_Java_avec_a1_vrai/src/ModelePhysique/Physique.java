@@ -17,7 +17,7 @@ public class Physique {
 	public ArrayList<Force> getListeForces() {
 		return _listeForces;
 	}
-	public int getdt() {
+	public int getDt() {
 		return _dt;
 	}
 	
@@ -42,10 +42,10 @@ public class Physique {
 		vivant.setAccelerationY(SommeForceVivantY/vivant.getMasse()); //Alexis : on balance l'accélération en y dans vivant
 	}
 	 public void Integration(Vivant vivant) {
-		 vivant.setVitesseX(vivant.getVitesseX()+vivant.getAccelerationX()*dt);
-		 vivant.setVitesseY(vivant.getVitesseY()+vivant.getAccelerationY()*dt);
-		 vivant.setPositionX(vivant.getPositionX()+vivant.getVitesseX()*dt);
-		 vivant.setPositionY(vivant.getPositionY()+vivant.getVitesseY()*dt);
+		 vivant.setVitesseX(vivant.getVitesseX()+vivant.getAccelerationX()*this.getDt());
+		 vivant.setVitesseY(vivant.getVitesseY()+vivant.getAccelerationY()*this.getDt());
+		 vivant.setPositionX(vivant.getPositionX()+vivant.getVitesseX()*this.getDt());
+		 vivant.setPositionY(vivant.getPositionY()+vivant.getVitesseY()*this.getDt());
 		 
 	 }
 	
