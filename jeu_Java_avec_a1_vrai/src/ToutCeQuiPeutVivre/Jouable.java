@@ -13,7 +13,7 @@ public class Jouable extends Vivant{
 		super(hpMax, manaMax, attaque, defense, listeAttaque, modAttaque, modDefense,
 				modVitesse, attaqueEquipement, defenseEquipement, vitesseEquipement,
 				manaMaxEquipement, hpMaxEquipement, type, vitesse, vitesseX, vitesseY,
-				accelerationX, accelerationY, masse);
+				accelerationX, accelerationY, masse, 48, 48);
 		
 	}
 	

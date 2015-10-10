@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import LesActionsSpecials.Attaque;
+import Solides.Obstacle;
 
 
-public class Vivant{
+public class Vivant extends Obstacle{
 //variable
 	
 	//statistiques de base du personnage
@@ -52,9 +53,10 @@ public class Vivant{
 					int modDefense,int modVitesse,int attaqueEquipement, int defenseEquipement,
 					int vitesseEquipement, int manaMaxEquipement, int hpMaxEquipement,
 					String type, int vitesse, 
-					int vitesseX,int vitesseY, int accelerationX, int accelerationY, int masse){
+					int vitesseX,int vitesseY, int accelerationX, int accelerationY, 
+					int masse, int hauteur, int largeur){
 		
-		
+		super(hauteur, largeur, 0, 0);
 		_attaqueEquipement=attaqueEquipement;
 		_defenseEquipement=defenseEquipement;
 		_vitesseEquipement=vitesseEquipement;
@@ -83,6 +85,7 @@ public class Vivant{
 	
 	//contructeur permettant de generer un VIvant test facilement
 	public Vivant(Attaque[] listeAtt, String type){
+		super(48, 48, 0, 0);
 		_attaqueEquipement=0;
 		_defenseEquipement=0;
 		_vitesseEquipement=0;
