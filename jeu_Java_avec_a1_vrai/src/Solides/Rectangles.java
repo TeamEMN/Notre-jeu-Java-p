@@ -46,4 +46,20 @@ public class Rectangles {
 		
 		return(this._ySG);
 	}
+
+	public void setLongueur(int _longueur) {
+		this._longueur = _longueur;
+	}
+
+	public void setLargeur(int _largeur) {
+		this._largeur = _largeur;
+	}
+
+	public void setXSG(int _xSG) {
+		this._xSG = _xSG;
+	}
+
+	public void setYSG(int _ySG) {
+		this._ySG = _ySG;
+	}
 }
