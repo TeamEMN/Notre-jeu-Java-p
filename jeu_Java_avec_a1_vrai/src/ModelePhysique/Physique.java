@@ -44,8 +44,8 @@ public class Physique {
 	 public void Integration(Vivant vivant) {
 		 vivant.setVitesseX(vivant.getVitesseX()+vivant.getAccelerationX()*this.getDt());
 		 vivant.setVitesseY(vivant.getVitesseY()+vivant.getAccelerationY()*this.getDt());
-		 vivant.setPositionX(vivant.getPositionX()+vivant.getVitesseX()*this.getDt());
-		 vivant.setPositionY(vivant.getPositionY()+vivant.getVitesseY()*this.getDt());
+		 vivant.setXSG(vivant.getXSG()+vivant.getVitesseX()*this.getDt());
+		 vivant.setYSG(vivant.getYSG()+vivant.getVitesseY()*this.getDt());
 		 
 	 }
 	

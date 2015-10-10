@@ -10,4 +10,12 @@ public class ForceDeZone extends Force {
 		super(vivant,intensiteX,intensiteY);
 		_zone = zone;
 	}
+
+	public Zone getZone() {
+		return _zone;
+	}
+
+	public void setZone(Zone _zone) {
+		this._zone = _zone;
+	}
 }
