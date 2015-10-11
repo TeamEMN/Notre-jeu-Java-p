@@ -8,8 +8,9 @@ public class Physique {
 	private ArrayList<Force> _listeForces;
 	private int _dt; //Alexis : À voir si on la hardcode ici on si on la met dans une autre classe
 	
-	public Physique(ArrayList<Force> listeForces) {
+	public Physique(ArrayList<Force> listeForces, int dt) {
 		this._listeForces = listeForces;
+		this._dt = dt;
 	}
 	
 	
