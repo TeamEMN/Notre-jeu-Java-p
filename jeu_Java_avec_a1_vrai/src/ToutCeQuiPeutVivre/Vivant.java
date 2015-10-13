@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import LesActionsSpecials.Attaque;
 import Solides.Obstacle;
+import Solides.Rectangles;
 
 
 public class Vivant extends Obstacle{
@@ -56,7 +57,7 @@ public class Vivant extends Obstacle{
 					int vitesseX,int vitesseY, int accelerationX, int accelerationY, 
 					int masse, int hauteur, int largeur){
 		
-		super(hauteur, largeur, 0, 0);
+		super(creerListeRectangles(hauteur, largeur),"test");
 		_attaqueEquipement=attaqueEquipement;
 		_defenseEquipement=defenseEquipement;
 		_vitesseEquipement=vitesseEquipement;
@@ -85,7 +86,7 @@ public class Vivant extends Obstacle{
 	
 	//contructeur permettant de generer un VIvant test facilement
 	public Vivant(Attaque[] listeAtt, String type){
-		super(48, 48, 0, 0);
+		super(creerListeRectangles(48, 48),"test");
 		_attaqueEquipement=0;
 		_defenseEquipement=0;
 		_vitesseEquipement=0;
@@ -111,6 +112,17 @@ public class Vivant extends Obstacle{
 		_masse=20; //Alexis : ajout de masse dans le constructeur test 
 	
 	}
+	
+	// Alexis : Générer le super chiant
+	
+	public static Rectangles[] creerListeRectangles (int hauteur, int largeur) {
+		Rectangles Rect = new Rectangles(hauteur, largeur, 0, 0);
+		Rectangles [] ListeRect = {Rect};
+		return ListeRect;
+	}
+	
+	
+	
 	//getteur (tout es ok car autogenere)
 	
 

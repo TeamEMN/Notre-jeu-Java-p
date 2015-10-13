@@ -11,10 +11,10 @@ public class Fenetre extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
 		this.setVisible(true);
-		Rectangles Rect = new Rectangles(50,40,10,120);
-		Rectangles ListeRect[] = {Rect}; 
-		Obstacle Obs = new Obstacle(ListeRect,"zizi");
-		Panel Pan = new Panel(Obs);
+		Panel Pan = new Panel();
 		this.setContentPane(Pan);
+		
+		Pan.go();
+		
 		}
 	}
