@@ -9,7 +9,6 @@ public class Ponctuelle extends Force {
 	public Ponctuelle(Vivant vivant, int intensiteX, int intensiteY, Mecanisme mecanisme) {
 		super(vivant,intensiteX,intensiteY);
 		_mecanisme = mecanisme;
-		
 	}
 
 	public Mecanisme getMecanisme() {
