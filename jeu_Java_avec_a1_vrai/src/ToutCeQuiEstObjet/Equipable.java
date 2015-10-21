@@ -20,23 +20,23 @@ public class Equipable extends Objet {
 	}
 	
 	// Getters
-	public float getBonusHp() {
+	public int getBonusHp() {
 		return this._bonusHp;
 	}
 	
-	public float getBonusAttaque() {
+	public int getBonusAttaque() {
 		return this._bonusAttaque;
 	}
 	
-	public float getBonusDefense() {
+	public int getBonusDefense() {
 		return this._bonusDefense;
 	}
 	
-	public float getBonusVitesse() {
+	public int getBonusVitesse() {
 		return this._bonusVitesse;
 	}
 	
-	public float getBonusMana() {
+	public int getBonusMana() {
 		return this._bonusMana;
 	}
 	
