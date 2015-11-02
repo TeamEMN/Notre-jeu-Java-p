@@ -20,5 +20,9 @@ public class Jouable extends Vivant{
 	
 
 
-
+	public static void main(String[] args) {
+		Attaque[] listeAttaque = {};
+		final Jouable personnagePrincipal = new Jouable(100, 120, 20, 30, listeAttaque, 0, 0, 0, 0, 0, 0, 0, 0, null, 10,
+				0, 0, 0, 0, 60000);
+	}
 }

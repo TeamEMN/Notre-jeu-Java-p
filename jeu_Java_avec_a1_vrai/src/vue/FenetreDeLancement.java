@@ -15,8 +15,7 @@ import javax.swing.UIManager;
 
 public class FenetreDeLancement extends JFrame{
 	private static final long serialVersionUID = 1L;
-	private JLabel affichage;
-	private JTextArea texte;
+
 
 	
 	public FenetreDeLancement() {
@@ -30,6 +29,7 @@ public class FenetreDeLancement extends JFrame{
 		principal.add(boutonLancement);
 		this.pack();
 		this.setSize(966, 678);
+		this.setResizable(false);
 	
 	}
 
